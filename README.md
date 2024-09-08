@@ -1,1 +1,1 @@
-Sistema de apostas simples com 2 jogos.
+Sistema de apostas simples com 3 jogos.
