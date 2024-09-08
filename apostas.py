@@ -93,7 +93,7 @@ def roleta():
             break    
 
 while True:
-    escolha_opcao = (input("\nSelecione uma das seguintes opções: "))
+    escolha_opcao = input("\nSelecione uma das seguintes opções: ")
     if(escolha_opcao == '1'):
         adivinhar_numero()
     elif(escolha_opcao =='2'):
