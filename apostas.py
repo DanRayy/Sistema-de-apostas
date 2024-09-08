@@ -6,6 +6,7 @@ print("---- APOSTAS ----")
 opcao = [
     "1 - Jogo de adivinhar 2 numeros entre 1 e 7. ", #0
     "2 - Roleta de 25 números. ", #1
+    "3 - aposte na cor. " #2
 ]
 
 saldo = 100
@@ -40,7 +41,7 @@ def adivinhar_numero():
             resultado = valor_aposta * 2
             saldo += resultado
             print(f"\nParabéns! Você acertou 2 números e ganhou: R${resultado:.2f} Saldo atual: R${saldo:.2f}")
-        # As condições abaixo podem ser juntadas com "or", pois a mensagem é a mesma.
+
         elif (resposta1 == num1 and resposta2 != num2) or (resposta1 != num1 and resposta2 == num2):
             resultado = valor_aposta * 1.5
             saldo += resultado
@@ -72,7 +73,7 @@ def roleta():
                 if (resposta == escolha_numero):
                     valor_ganho = valor_aposta * 0.7
                     saldo += valor_ganho
-                    print(f"\033[32mVocê ganhou {valor_ganho}R$!\033[m ")
+                    print(f"\033[32mVocê ganhou {valor_ganho:.2f}R$!\033[m ")
 
             else:
                 saldo -= valor_aposta
@@ -101,6 +102,7 @@ while True:
     else:
         print("\033[31mOpção inválida!\033[m")
 
+    print(f"Saldo: \033[32m{saldo}\033[m")
     escolha = input("Deseja escolher outro jogo? (s/n:) ")
     if (escolha.lower() != 's'):
         break
