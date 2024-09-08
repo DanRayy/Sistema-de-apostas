@@ -95,11 +95,11 @@ def jogo_cores():
     global saldo
     while True:
         resultado = random.randint(1,3)
-        print(resultado)
+        print(resultado) # mostra a resposta para testes
         valor_aposta = float(input(f"R${saldo:.2f} - Digite o valor que quer apostar: "))
         escolha_cor = int(input("\n\033[32m1 - VERDE\033[m\n\033[31m2 - VERMELHA\033[m\n3 - BRANCO\n\nEscolha uma das seguintes cores: "))
         saldo -= valor_aposta
-            
+        
         if (escolha_cor == 1 and resultado == 1):
             valor_aposta *= 2
             saldo += valor_aposta
@@ -114,11 +114,13 @@ def jogo_cores():
             valor_aposta *= 14
             saldo += valor_aposta
             print(f"Cor BRANCA! - Você ganhou R${valor_aposta:.2f}!")
-
+            
         else:
             print("A cor que você escolehu não caiu!")
             print(f"Você perdeu R${valor_aposta:.2f}!")
             print(f"\n\033[32mSaldo:\033[m {saldo:.2f}\n")
+
+
 
         escolha = input("Deseja jogar novamente? (s/n:) ")
         if (escolha.lower() != 's'):
