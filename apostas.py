@@ -87,13 +87,12 @@ def roleta():
         if (escolha.lower() != 's'):
             break    
 
-for opcao in opcao:
-    print(opcao)
+for opcoes in opcao:
+    print(opcoes)
 
 print(f"\n\033[32mSaldo:\033[m {saldo:.2f}")
 
 while True:
-
     escolha_opcao = str(input("\nSelecione uma das seguintes opções: "))
     if(escolha_opcao == '1'):
         adivinhar_numero()
@@ -103,6 +102,9 @@ while True:
         print("\033[31mOpção inválida!\033[m")
 
     print(f"Saldo: \033[32m{saldo}\033[m")
-    escolha = input("Deseja escolher outro jogo? (s/n:) ")
+    escolha = input("Deseja escolher um jogo? (s/n:) ")
     if (escolha.lower() != 's'):
         break
+    else:
+        for opcoes in opcao:
+            print(opcoes)
