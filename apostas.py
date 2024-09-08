@@ -57,8 +57,8 @@ def adivinhar_numero():
             print(f"Você não acertou nenhum número! Saldo atual: R${saldo:.2f}")
             break
 
-        escolha = input("Desja jogar novamente? (s/n:) ")
-        if (escolha != 'S' and escolha != 's'):
+        escolha = input("Deseja jogar novamente? (s/n:) ")
+        if (escolha.lower() != 's'):
             break
 
 def roleta():
@@ -88,22 +88,23 @@ def roleta():
 
         print(f"Saldo atual: {saldo:.2f}")
 
-        escolha = input("Desja jogar novamente? (s/n:) ")
-        if (escolha != 'S' and escolha != 's'):
+        escolha = input("Deseja jogar novamente? (s/n:) ")
+        if (escolha.lower() != 's'):
             break    
 
 while True:
-    escolha_opcao = input("\nSelecione uma das seguintes opções: ")
+
+    escolha_opcao = str(input("\nSelecione uma das seguintes opções: "))
     if(escolha_opcao == '1'):
         adivinhar_numero()
     elif(escolha_opcao =='2'):
         roleta()
     else:
-        print("\033[31m[Opção inválida!]\033[m")
+        print("\033[31mOpção inválida!\033[m")
 
-    escolha = input("Desja escolher outro jogo? (s/n:) ")
+    escolha = input("Deseja escolher outro jogo? (s/n:) ")
     print(" ")
-    if (escolha != 'S' and escolha != 's'):
+    if (escolha.lower() != 's'):
         break
     else:
         opcoes_de_aposta()
