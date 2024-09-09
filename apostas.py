@@ -12,7 +12,6 @@ opcao = [
 saldo = 1000.00
 for opcoes in opcao:
     print(opcoes)
-
 print(f"\n\033[32mSaldo:\033[m {saldo:.2f}")
 
 def adivinhar_numero():
@@ -136,7 +135,7 @@ while True:
         jogo_cores()
     else:
         print("\033[31mOpção inválida!\033[m")
-
+        
     print(f"Saldo: \033[32m{saldo:.2f}\033[m")
     escolha = input("Deseja escolher um jogo? (s/n:) ")
     if (escolha.lower() != 's'):
