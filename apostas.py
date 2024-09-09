@@ -120,8 +120,6 @@ def jogo_cores():
             print(f"Você perdeu R${valor_aposta:.2f}!")
             print(f"\n\033[32mSaldo:\033[m {saldo:.2f}\n")
 
-
-
         escolha = input("Deseja jogar novamente? (s/n:) ")
         if (escolha.lower() != 's'):
             break   
