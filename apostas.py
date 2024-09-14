@@ -12,6 +12,7 @@ opcao = [
 saldo = 1000.00
 for opcoes in opcao:
     print(opcoes)
+
 print(f"\n\033[32mSaldo:\033[m {saldo:.2f}")
 
 def adivinhar_numero():
@@ -62,8 +63,15 @@ def roleta():
     global saldo
 
     while True:
-        valor_aposta = float(input(f"R${saldo:.2f} - Digite o valor que quer apostar: "))
-        escolha_numero = float(input(f"Escolha um número entre 1 e 25: "))
+        try:
+            valor_aposta = float(input(f"R${saldo:.2f} - Quanto você quer apostar? "))
+        except ValueError:
+            print("Digite um valor monetário válido, por favor.")
+            continue
+        try:
+            escolha_numero = float(input(f"Escolha um número entre 1 e 25: "))
+        except ValueError:
+            continue
         numeros_gerados = 0
 
         if (escolha_numero >= 1 and escolha_numero <= 25):
@@ -95,7 +103,12 @@ def jogo_cores():
     while True:
         resultado = random.randint(1,3)
         print(resultado) # mostra a resposta para testes
-        valor_aposta = float(input(f"R${saldo:.2f} - Digite o valor que quer apostar: "))
+        try:
+            valor_aposta = float(input(f"R${saldo:.2f} - Digite o valor que quer apostar: "))
+        except ValueError:
+            print("Digite um valor válido por favor")
+            continue
+
         escolha_cor = int(input("\n\033[32m1 - VERDE\033[m\n\033[31m2 - VERMELHA\033[m\n3 - BRANCO\n\nEscolha uma das seguintes cores: "))
         saldo -= valor_aposta
         
@@ -119,6 +132,8 @@ def jogo_cores():
             print(f"Você perdeu R${valor_aposta:.2f}!")
             print(f"\n\033[32mSaldo:\033[m {saldo:.2f}\n")
 
+
+
         escolha = input("Deseja jogar novamente? (s/n:) ")
         if (escolha.lower() != 's'):
             break   
@@ -126,16 +141,21 @@ def jogo_cores():
             resultado = random.randint(1,3)
 
 while True:
-    escolha_opcao = str(input("\nSelecione uma das seguintes opções: "))
-    if(escolha_opcao == '1'):
-        adivinhar_numero()
-    elif(escolha_opcao =='2'):
-        roleta()
-    elif(escolha_opcao == '3'):
-        jogo_cores()
-    else:
-        print("\033[31mOpção inválida!\033[m")
-        
+
+    try:
+        escolha_opcao = str(input("\nSelecione uma das seguintes opções: "))
+        if(escolha_opcao == '1'):
+            adivinhar_numero()
+        elif(escolha_opcao =='2'):
+            roleta()
+        elif(escolha_opcao == '3'):
+            jogo_cores()
+        else:
+            print("\033[31mOpção inválida!\033[m")
+    except ValueError:
+        print("Escolha inválida!")
+        continue
+
     print(f"Saldo: \033[32m{saldo:.2f}\033[m")
     escolha = input("Deseja escolher um jogo? (s/n:) ")
     if (escolha.lower() != 's'):
